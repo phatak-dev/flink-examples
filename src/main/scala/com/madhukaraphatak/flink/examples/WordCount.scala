@@ -26,7 +26,7 @@ object WordCount {
 
     val sum = grouped.sum(1)
 
-    sum.print()
+    println(sum.collect())
 
 
 
