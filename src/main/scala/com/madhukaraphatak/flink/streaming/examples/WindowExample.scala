@@ -22,10 +22,10 @@ object WindowExample {
 
     val tumblingWindow = keyValue.timeWindow(Time.seconds(15))
     // sliding window : Calculate wordcount for last 5 seconds
-    val slidingWindow = keyValue.timeWindow(Time.seconds(5),Time.seconds(1))
+    val slidingWindow = keyValue.timeWindow(Time.seconds(15),Time.seconds(5))
     //count window : Calculate for every 5 records
     val countWindow = keyValue.countWindow(5)
-    
+
 
     tumblingWindow.sum(1).name("tumblingwindow").print()
     slidingWindow.sum(1).name("slidingwindow").print()
