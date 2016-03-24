@@ -27,8 +27,8 @@ object WindowExample {
     val countWindow = keyValue.countWindow(5)
 
 
-    tumblingWindow.sum(1).name("tumblingwindow").print()
-    slidingWindow.sum(1).name("slidingwindow").print()
+    //tumblingWindow.sum(1).name("tumblingwindow").print()
+    //slidingWindow.sum(1).name("slidingwindow").print()
     countWindow.sum(1).name("count window").print()
 
     env.execute()
