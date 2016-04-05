@@ -19,19 +19,16 @@ object WindowAnatomy {
 
     // define the count window without purge
 
-    val tumblingWindowStreamWithoutPurge = keyValue.window(GlobalWindows.create()).
+    val countWindowWithoutPurge = keyValue.window(GlobalWindows.create()).
       trigger(CountTrigger.of(2))
 
-    tumblingWindowStreamWithoutPurge.sum({ println("without purge") ; 1}).print()
 
-    // define the count with purge
-
-    val tumblingWindowStreamWithPurge = keyValue.window(GlobalWindows.create()).
+    val countWindowWithPurge = keyValue.window(GlobalWindows.create()).
       trigger(PurgingTrigger.of(CountTrigger.of[GlobalWindow](2)))
 
-    tumblingWindowStreamWithoutPurge.sum(1).print()
+    countWindowWithoutPurge.sum(1).print()
 
-    tumblingWindowStreamWithPurge.sum(1).print()
+    countWindowWithPurge.sum(1).print()
 
     env.execute()
 
