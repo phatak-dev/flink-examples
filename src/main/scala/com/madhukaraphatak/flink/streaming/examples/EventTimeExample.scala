@@ -14,7 +14,7 @@ object EventTimeExample {
     val env = StreamExecutionEnvironment.getExecutionEnvironment
 
     env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
-    val source = env.socketTextStream("localhost",9000)
+    val source = env.socketTextStream("localhost",50050)
     val parsedStream = source.map(value => {
       val columns = value.split(",")
       Stock(columns(0).toLong, columns(1),columns(2).toDouble)
